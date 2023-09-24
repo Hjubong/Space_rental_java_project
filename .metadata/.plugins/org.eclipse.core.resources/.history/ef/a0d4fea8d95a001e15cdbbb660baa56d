@@ -8,7 +8,7 @@ public class user {
 	
 
 //	    public static void main(String[] args) {
-//	        int numberOfUsernames = 100; // ìƒì„±í•  ë”ë¯¸ ì•„ì´ë”” ê°œìˆ˜
+//	        int numberOfUsernames = 100; // »ı¼ºÇÒ ´õ¹Ì ¾ÆÀÌµğ °³¼ö
 //
 //	        for (int i = 0; i < numberOfUsernames; i++) {
 //	            String username = generateDummyUsername();
@@ -40,9 +40,9 @@ public class user {
 	    
 
 	  
-//------------------------------------------------------------------------ë¹„ë°€ë²ˆí˜¸
+//------------------------------------------------------------------------ºñ¹Ğ¹øÈ£
 //	        public static void main(String[] args) {
-//	            int numberOfPasswords = 100; // ìƒì„±í•  ë”ë¯¸ ë¹„ë°€ë²ˆí˜¸ ê°œìˆ˜
+//	            int numberOfPasswords = 100; // »ı¼ºÇÒ ´õ¹Ì ºñ¹Ğ¹øÈ£ °³¼ö
 //
 //	            for (int i = 0; i < numberOfPasswords; i++) {
 //	                String password = generateDummyPassword();
@@ -81,7 +81,7 @@ public class user {
 //	                }
 //	            }
 //
-//	            // ë¹„ë°€ë²ˆí˜¸ì— ìµœì†Œ 2ê°€ì§€ ì¡°í•©ì„ ì§€í‚¤ì§€ ì•Šìœ¼ë©´ ì¬ìƒì„±
+//	            // ºñ¹Ğ¹øÈ£¿¡ ÃÖ¼Ò 2°¡Áö Á¶ÇÕÀ» ÁöÅ°Áö ¾ÊÀ¸¸é Àç»ı¼º
 //	            if (!(hasUpperCase && hasLowerCase) && !(hasUpperCase && hasDigit) && !(hasUpperCase && hasSpecialChar) &&
 //	                    !(hasLowerCase && hasDigit) && !(hasLowerCase && hasSpecialChar) && !(hasDigit && hasSpecialChar)) {
 //	                return generateDummyPassword();
@@ -91,10 +91,10 @@ public class user {
 //	        }
 	    
 
-//	------------------------------------------------------------------------ì „í™”ë²ˆí˜¸
+//	------------------------------------------------------------------------ÀüÈ­¹øÈ£
 
 //	    public static void main(String[] args) {
-//	        int numberOfPhoneNumbers = 100; // ìƒì„±í•  ë”ë¯¸ ì „í™”ë²ˆí˜¸ ê°œìˆ˜
+//	        int numberOfPhoneNumbers = 100; // »ı¼ºÇÒ ´õ¹Ì ÀüÈ­¹øÈ£ °³¼ö
 //
 //	        for (int i = 0; i < numberOfPhoneNumbers; i++) {
 //	            String phoneNumber = generateDummyPhoneNumber();
@@ -105,29 +105,29 @@ public class user {
 //	    public static String generateDummyPhoneNumber() {
 //	        Random random = new Random();
 //
-//	        // "010-XXXX-XXXX" í˜•ì‹ì˜ ì „í™”ë²ˆí˜¸ ìƒì„±
+//	        // "010-XXXX-XXXX" Çü½ÄÀÇ ÀüÈ­¹øÈ£ »ı¼º
 //	        String phoneNumber = "010-";
 //
-//	        // "XXXX-XXXX" ë¶€ë¶„ì„ ë¬´ì‘ìœ„ë¡œ ìƒì„±
+//	        // "XXXX-XXXX" ºÎºĞÀ» ¹«ÀÛÀ§·Î »ı¼º
 //	        for (int i = 0; i < 4; i++) {
-//	            int digit = random.nextInt(10); // 0ë¶€í„° 9ê¹Œì§€ì˜ ë¬´ì‘ìœ„ ìˆ«ì
+//	            int digit = random.nextInt(10); // 0ºÎÅÍ 9±îÁöÀÇ ¹«ÀÛÀ§ ¼ıÀÚ
 //	            phoneNumber += digit;
 //	        }
 //
 //	        phoneNumber += "-";
 //
 //	        for (int i = 0; i < 4; i++) {
-//	            int digit = random.nextInt(10); // 0ë¶€í„° 9ê¹Œì§€ì˜ ë¬´ì‘ìœ„ ìˆ«ì
+//	            int digit = random.nextInt(10); // 0ºÎÅÍ 9±îÁöÀÇ ¹«ÀÛÀ§ ¼ıÀÚ
 //	            phoneNumber += digit;
 //	        }
 //
 //	        return phoneNumber;
 //	    }
 	
-//		------------------------------------------------------------------------ìƒë…„ì›”ì¼
+//		------------------------------------------------------------------------»ı³â¿ùÀÏ
 
 //	    public static void main(String[] args) {
-//	        int numberOfBirthdates = 100; // ìƒì„±í•  ë”ë¯¸ ìƒë…„ì›”ì¼ ë°ì´í„° ê°œìˆ˜
+//	        int numberOfBirthdates = 100; // »ı¼ºÇÒ ´õ¹Ì »ı³â¿ùÀÏ µ¥ÀÌÅÍ °³¼ö
 //
 //	        for (int i = 0; i < numberOfBirthdates; i++) {
 //	            String birthdate = generateDummyBirthdate();
@@ -138,33 +138,33 @@ public class user {
 //	    public static String generateDummyBirthdate() {
 //	        Random random = new Random();
 //
-//	        // ë¬´ì‘ìœ„ë¡œ 1950ë…„ë¶€í„° 2023ë…„ ì‚¬ì´ì˜ ì—°ë„ ìƒì„±
+//	        // ¹«ÀÛÀ§·Î 1950³âºÎÅÍ 2023³â »çÀÌÀÇ ¿¬µµ »ı¼º
 //	        int year = random.nextInt(74) + 1950;
 //
-//	        // ë¬´ì‘ìœ„ë¡œ 1ì›”ë¶€í„° 12ì›” ì‚¬ì´ì˜ ì›” ìƒì„±
+//	        // ¹«ÀÛÀ§·Î 1¿ùºÎÅÍ 12¿ù »çÀÌÀÇ ¿ù »ı¼º
 //	        int month = random.nextInt(12) + 1;
 //
-//	        // ì›”ë³„ë¡œ ìœ íš¨í•œ ì¼ì ìƒì„±
+//	        // ¿ùº°·Î À¯È¿ÇÑ ÀÏÀÚ »ı¼º
 //	        int day;
 //	        switch (month) {
 //	            case 2:
 //	                if (isLeapYear(year)) {
-//	                    day = random.nextInt(29) + 1; // ìœ¤ë…„ì¸ ê²½ìš° 29ì¼ê¹Œì§€
+//	                    day = random.nextInt(29) + 1; // À±³âÀÎ °æ¿ì 29ÀÏ±îÁö
 //	                } else {
-//	                    day = random.nextInt(28) + 1; // ìœ¤ë…„ì´ ì•„ë‹Œ ê²½ìš° 28ì¼ê¹Œì§€
+//	                    day = random.nextInt(28) + 1; // À±³âÀÌ ¾Æ´Ñ °æ¿ì 28ÀÏ±îÁö
 //	                }
 //	                break;
 //	            case 4:
 //	            case 6:
 //	            case 9:
 //	            case 11:
-//	                day = random.nextInt(30) + 1; // 4, 6, 9, 11ì›”ì€ 30ì¼ê¹Œì§€
+//	                day = random.nextInt(30) + 1; // 4, 6, 9, 11¿ùÀº 30ÀÏ±îÁö
 //	                break;
 //	            default:
-//	                day = random.nextInt(31) + 1; // ë‚˜ë¨¸ì§€ ì›”ì€ 31ì¼ê¹Œì§€
+//	                day = random.nextInt(31) + 1; // ³ª¸ÓÁö ¿ùÀº 31ÀÏ±îÁö
 //	        }
 //
-//	        // ë‚ ì§œë¥¼ 2ìë¦¬ ë¬¸ìì—´ë¡œ ë³€í™˜
+//	        // ³¯Â¥¸¦ 2ÀÚ¸® ¹®ÀÚ¿­·Î º¯È¯
 //	        String yearStr = String.format("%04d", year);
 //	        String monthStr = String.format("%02d", month);
 //	        String dayStr = String.format("%02d", day);
@@ -177,7 +177,7 @@ public class user {
 //	    }
 	
 
-//	-----------------------------------------------------------------------ì´ë¦„
+//	-----------------------------------------------------------------------ÀÌ¸§
 
 	    public static void main(String[] args) {
 	    	int numberOfName = 100;
@@ -190,8 +190,8 @@ public class user {
 
 	    public static String randName() {
 	        StringBuilder text = new StringBuilder();
-	        String first = "ê¹€ì´ë°•ìµœì •ê°•ì„í•œì˜¤ì„œì‹ ê¶Œí™©ì•ˆì†¡ë¥˜ì „í™ê³ ë¬¸ì–‘ì†ë°°ì¡°ë°±í—ˆìœ ë‚¨ì‹¬ë…¸ì •í•˜ê³½ì„±ì°¨ì£¼ìš°êµ¬ì‹ ì„ë‚˜ì „ë¯¼ìœ ì§„ì§€ì—„ì±„ë°©";
-	        String last = "ê°€ê°•ê±´ë‹¬ë‹´ëŒ€ë•ë„ë™ë‘ë¼ë˜ë¡œë£¨ë¦¬ë§ˆë§Œëª…ë¬´ë¬¸ë¯¸ë¯¼ë°”ë°•ë°±ë²”ë³„ë³‘ë³´ì‚¬ì‚°ìƒìƒˆì„œì„ì„ ì„¤ì„­ì„±ì„¸ì†Œì†”ìˆ˜ìˆ™ìˆœìˆ­ìŠ¬ìŠ¹ì‹œì‹ ì•„ì•ˆì• ì—„ì—¬ì—°ì˜ì˜ˆì˜¤ì˜¥ì™„ìš”ìš©ìš°ì›ì›”ìœ„ìœ ìœ¤ìœ¨ìœ¼ì€ì˜ì´ìµì¸ì¼ìì”ì¥ì¬ì „ì •ì œì¡°ì¢…ì£¼ì¤€ì¤‘ì§€ì§„ì°¬ì°½ì±„ì²œì² ì´ˆì¶˜ì¶©ì¹˜íƒíƒœ";
+	        String first = "±èÀÌ¹ÚÃÖÁ¤°­ÀÓÇÑ¿À¼­½Å±ÇÈ²¾È¼Û·ùÀüÈ«°í¹®¾ç¼Õ¹èÁ¶¹éÇãÀ¯³²½É³ëÁ¤ÇÏ°û¼ºÂ÷ÁÖ¿ì±¸½ÅÀÓ³ªÀü¹ÎÀ¯ÁøÁö¾öÃ¤¹æ";
+	        String last = "°¡°­°Ç´Ş´ã´ë´öµµµ¿µÎ¶ó·¡·Î·ç¸®¸¶¸¸¸í¹«¹®¹Ì¹Î¹Ù¹Ú¹é¹üº°º´º¸»ç»ê»ó»õ¼­¼®¼±¼³¼·¼º¼¼¼Ò¼Ö¼ö¼÷¼ø¼ş½½½Â½Ã½Å¾Æ¾È¾Ö¾ö¿©¿¬¿µ¿¹¿À¿Á¿Ï¿ä¿ë¿ì¿ø¿ùÀ§À¯À±À²À¸ÀºÀÇÀÌÀÍÀÎÀÏÀÚÀÜÀåÀçÀüÁ¤Á¦Á¶Á¾ÁÖÁØÁßÁöÁøÂùÃ¢Ã¤ÃµÃ¶ÃÊÃáÃæÄ¡Å½ÅÂ";
 
 	        for (int i = 0; i < 1; i++) {
 	            text.append(first.charAt(new Random().nextInt(first.length())));
