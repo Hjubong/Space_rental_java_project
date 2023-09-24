@@ -1,0 +1,48 @@
+package dummy;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
+public class user {
+	
+	    public static void main(String[] args) {
+	        int numberOfUsers = 10; // 생성할 더미 아이디 개수
+
+	        List<String> dummyUsernames = generateDummyUsernames(numberOfUsers);
+
+	        // 생성된 더미 아이디 출력
+	        for (String username : dummyUsernames) {
+	            System.out.println(username);
+	        }
+	    }
+
+	    // 더미 아이디 생성 함수
+	    public static List<String> generateDummyUsernames(int numberOfUsers) {
+	        List<String> dummyUsernames = new ArrayList<>();
+	        Random random = new Random();
+
+	        for (int i = 0; i < numberOfUsers; i++) {
+	            String username = generateRandomUsername(random);
+	            dummyUsernames.add(username);
+	        }
+
+	        return dummyUsernames;
+	    }
+
+	    // 임의의 더미 아이디 생성 함수
+	    public static String generateRandomUsername(Random random) {
+	        String characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+	        int length = 8; // 아이디 길이
+
+	        StringBuilder username = new StringBuilder();
+
+	        for (int i = 0; i < length; i++) {
+	            int index = random.nextInt(characters.length());
+	            username.append(characters.charAt(index));
+	        }
+
+	        return username.toString();
+	    }
+	
+
+}

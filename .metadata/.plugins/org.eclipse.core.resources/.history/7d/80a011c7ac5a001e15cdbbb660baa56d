@@ -1,0 +1,95 @@
+package dummy;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+import java.security.SecureRandom;
+
+public class user {
+	
+
+//	    public static void main(String[] args) {
+//	        int numberOfUsernames = 100; // 생성할 더미 아이디 개수
+//
+//	        for (int i = 0; i < numberOfUsernames; i++) {
+//	            String username = generateDummyUsername();
+//	            System.out.println(username);
+//	        }
+//	    }
+//
+//	    public static String generateDummyUsername() {
+//	        SecureRandom random = new SecureRandom();
+//	        String characters = "abcdefghijklmnopqrstuvwxyz0123456789";
+//	        int minLength = 6;
+//	        int maxLength = 16;
+//
+//	        int usernameLength = random.nextInt(maxLength - minLength + 1) + minLength;
+//	        StringBuilder username = new StringBuilder();
+//
+//	        while (username.length() < usernameLength) {
+//	            int index = random.nextInt(characters.length());
+//	            char randomChar = characters.charAt(index);
+//	            username.append(randomChar);
+//	        }
+//
+//	        return username.toString();
+//	    }
+	
+
+	
+
+	    
+
+	  
+//------------------------------------------------------------------------비밀번호
+	        public static void main1(String[] args) {
+	            int numberOfPasswords = 100; // 생성할 더미 비밀번호 개수
+
+	            for (int i = 0; i < numberOfPasswords; i++) {
+	                String password = generateDummyPassword();
+	                System.out.println(password);
+	            }
+	        }
+
+	        public static String generateDummyPassword() {
+	            SecureRandom random = new SecureRandom();
+	            String characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*()_+";
+	            int minLength = 8;
+	            int maxLength = 16;
+
+	            int passwordLength = random.nextInt(maxLength - minLength + 1) + minLength;
+	            StringBuilder password = new StringBuilder();
+
+	            boolean hasUpperCase = false;
+	            boolean hasLowerCase = false;
+	            boolean hasDigit = false;
+	            boolean hasSpecialChar = false;
+
+	            while (password.length() < passwordLength) {
+	                int index = random.nextInt(characters.length());
+	                char randomChar = characters.charAt(index);
+
+	                password.append(randomChar);
+
+	                if (Character.isUpperCase(randomChar)) {
+	                    hasUpperCase = true;
+	                } else if (Character.isLowerCase(randomChar)) {
+	                    hasLowerCase = true;
+	                } else if (Character.isDigit(randomChar)) {
+	                    hasDigit = true;
+	                } else {
+	                    hasSpecialChar = true;
+	                }
+	            }
+
+	            // 비밀번호에 최소 2가지 조합을 지키지 않으면 재생성
+	            if (!(hasUpperCase && hasLowerCase) && !(hasUpperCase && hasDigit) && !(hasUpperCase && hasSpecialChar) &&
+	                    !(hasLowerCase && hasDigit) && !(hasLowerCase && hasSpecialChar) && !(hasDigit && hasSpecialChar)) {
+	                return generateDummyPassword();
+	            }
+
+	            return password.toString();
+	        }
+	    
+
+
+}
