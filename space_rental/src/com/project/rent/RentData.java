@@ -49,6 +49,8 @@ public class RentData {
 			}
 
 			reader.close();
+			
+			System.out.println("대여 데이터 로딩 완료");
 
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -100,6 +102,8 @@ public class RentData {
 			}
 
 			writer.close();
+			
+			System.out.println("수정된 대여 파일이 저장되었습니다.");
 
 		} catch (Exception e) {
 			// TODO: handle exception

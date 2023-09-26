@@ -21,7 +21,7 @@ public class UserData {
 
 	public static void setUserMap(String id, User user) {
 		userMap.replace(id, user);
-		
+
 		// 여기서 세이브를 할지, 나중에 할지 결정해야 함.
 	}
 
@@ -44,6 +44,8 @@ public class UserData {
 
 			reader.close();
 
+			System.out.println("사용자 데이터 로딩 완료");
+			
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
@@ -64,6 +66,8 @@ public class UserData {
 			}
 
 			writer.close();
+
+			System.out.println("수정된 회원 파일이 저장되었습니다.");
 
 		} catch (Exception e) {
 			// TODO: handle exception

@@ -39,7 +39,11 @@ public class Main {
 		System.out.println(r.toString());
 
 		
-		// 데이터 수정되었는지는 한번 더 확인해야 함.
+		// save 테스트
+		u.setName("손유바");
+		UserData.setUserMap(u.getId(), u);
+		UserData.save();
+		
 		
 		// 기능 실행 코드 아래 작성
 		

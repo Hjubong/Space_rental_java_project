@@ -44,6 +44,8 @@ public class StudioData {
 			}
 
 			reader.close();
+			
+			System.out.println("스튜디오 데이터 로딩 완료");
 
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -65,6 +67,8 @@ public class StudioData {
 
 			writer.close();
 
+			System.out.println("수정된 스튜디오 파일이 저장되었습니다.");
+			
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
