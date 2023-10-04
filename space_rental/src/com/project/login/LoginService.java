@@ -83,4 +83,25 @@ public class LoginService {
 		}
 
 	}
+	
+	public static void findId() {
+		LoginView.findIdLabel();
+		
+		// 이름과 전화번호 입력하기
+		System.out.println("가입하신 정보를 입력해주세요.");
+		System.out.print("이름: ");
+		String name = scan.nextLine();
+		
+		System.out.print("전화번호: ");
+		String tel = scan.nextLine();
+		
+		// 일치한다면 
+		if() {
+			
+		}
+		
+		// 아이디 알려주기
+		// 일치하지 않는다면
+		// 다시 입력받거나 이전으로 돌아가기
+	}
 }

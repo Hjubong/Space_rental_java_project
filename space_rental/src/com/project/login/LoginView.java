@@ -20,4 +20,10 @@ public class LoginView {
 	public static void line() {
 		System.out.println("――――――――――――――――――――――");
 	}
+	
+	public static void findIdLabel() {
+		line();
+		System.out.println("      아이디 찾기");
+		line();
+	}
 }

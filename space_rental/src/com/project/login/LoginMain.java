@@ -38,7 +38,7 @@ public class LoginMain {
 
 		} else if (n.equals("2")) {
 			// 아이디 찾기
-			System.out.println("아이디 찾기");
+			LoginService.findId();
 			return;
 		} else if (n.equals("3")) {
 			// 비밀번호 재설정
