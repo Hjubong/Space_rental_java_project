@@ -13,17 +13,17 @@ public class LoginView {
 
 	public static void loginTitle() {
 		line();
-		System.out.println("         로그인");
+		System.out.println("             로그인");
 		line();
 	}
 
 	public static void line() {
-		System.out.println("――――――――――――――――――――――");
+		System.out.println("――――――――――――――――――――――――――――――");
 	}
 	
 	public static void findIdLabel() {
 		line();
-		System.out.println("      아이디 찾기");
+		System.out.println("          아이디 찾기");
 		line();
 	}
 }

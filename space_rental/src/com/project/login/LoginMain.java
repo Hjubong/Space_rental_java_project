@@ -21,7 +21,7 @@ public class LoginMain {
 
 		// n 유효성 검사
 		// 0~3까지의 숫자만 허용한다.
-		n = LoginService.checkValid(n);
+		n = LoginService.checkValidNum(n);
 
 		System.out.println();
 		
