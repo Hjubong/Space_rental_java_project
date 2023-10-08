@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class AdminStudioManageView {
 
-	public static void manageView() {
+	public static void studioManageView() {
 		
 		// 스튜디오 관리 입장시 나오는 뷰
 		
