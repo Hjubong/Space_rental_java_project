@@ -26,4 +26,11 @@ public class LoginView {
 		System.out.println("          아이디 찾기");
 		line();
 	}
+	
+	public static void resetPwLabel() {
+		line();
+		System.out.println("         비밀번호 찾기");
+		line();
+	}
+	
 }

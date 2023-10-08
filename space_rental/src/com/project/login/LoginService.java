@@ -35,6 +35,7 @@ public class LoginService {
 	 */
 	public static void login() {
 		LoginView.loginTitle();
+
 		System.out.print("아이디: ");
 		String id = scan.nextLine();
 
@@ -109,18 +110,18 @@ public class LoginService {
 		System.out.print("전화번호: ");
 		String tel = scan.nextLine();
 
-		System.out.print("생년월일(8자리): ");
+		System.out.print("생년월일(8자리 숫자만 입력): ");
 		String birth = scan.nextLine();
 
 		LoginView.line();
-		
+
 		// 전화번호에 - 넣기
 		tel = addDash(tel);
 
 		HashMap<String, User> uMap = UserData.getUserMap();
 
 		String id = getUserId(name, tel, birth, uMap);
-		
+
 		if (id != null) {
 			// 일치하는 데이터가 있는 경우
 			System.out.println("고객님의 아이디는");
@@ -131,7 +132,7 @@ public class LoginService {
 		} else {
 			// 일치하는 데이터가 없을 경우
 			System.out.println("일치하는 정보가 없습니다.");
-			//이전 화면으로 돌아가거나 다시 입력받는다.
+			// 이전 화면으로 돌아가거나 다시 입력받는다.
 		}
 
 	}
@@ -147,10 +148,10 @@ public class LoginService {
 	 */
 	private static String getUserId(String name, String tel, String birth, HashMap<String, User> uMap) {
 		String id = null;
-		
+
 		for (HashMap.Entry<String, User> entry : uMap.entrySet()) {
 			User u = entry.getValue();
-			
+
 			if (u.getName().equals(name) && u.getTel().equals(tel) && u.getBirth().equals(birth)) {
 				id = entry.getKey();
 				break;
@@ -180,6 +181,113 @@ public class LoginService {
 		}
 
 		return tel;
+	}
+
+	/**
+	 * 비밀번호를 재설정하는 메소드입니다.
+	 */
+	public static void resetPw() {
+		LoginView.resetPwLabel();
+
+		// 회원 정보 입력받기 - 아이디, 이름, 전화번호, 생년월일
+		System.out.println("가입하신 정보를 입력해주세요.");
+
+		System.out.print("아이디: ");
+		String id = scan.nextLine();
+
+		System.out.print("이름: ");
+		String name = scan.nextLine();
+
+		System.out.print("전화번호: ");
+		String tel = scan.nextLine();
+
+		System.out.print("생년월일(8자리 숫자만 입력): ");
+		String birth = scan.nextLine();
+
+		LoginView.line();
+
+		// 전화번호에 - 넣기
+		tel = addDash(tel);
+
+		HashMap<String, User> uMap = UserData.getUserMap();
+
+		// 각 정보가 일치하는지 확인하기
+		if (isValidUserData(id, name, tel, birth, uMap)) {
+			// 변경할 비밀번호 입력받기
+			System.out.println("변경할 비밀번호를 입력해주세요.");
+			System.out.print("비밀번호: ");
+			String pw = scan.nextLine();
+			
+			// 비밀번호 유효성 검사 필요
+
+			System.out.print("비밀번호 확인: ");
+			String pwCheck = scan.nextLine();
+
+			System.out.println();
+			LoginView.line();
+			
+			// 새로운 비밀번호 확인작업
+			if (isSamePw(pw, pwCheck)) {
+				
+				// 맵에 새로운 비밀번호로 변경하여 저장하기
+				User u = uMap.get(id);
+				u.setPassword(pw);
+				uMap.replace(pw, u);
+				
+				// 데이터 파일에 변경된 내용 저장하기
+				UserData.save();
+				
+				System.out.println();
+				System.out.println("비밀번호가 변경되었습니다.");
+
+				// 이전 화면으로 돌아가기
+				System.out.println("이전 화면으로 돌아갑니다.");
+				System.out.println();
+			} else {
+				System.out.println("비밀번호가 일치하지 않습니다.");
+				System.out.println("다시 입력해주세요.");
+			}
+		} else {
+			System.out.println("입력하신 정보와 일치하는 회원정보가 없습니다.");
+			// 다시 입력하거나 이전 화면으로 돌아가기
+		}
+	}
+
+	/**
+	 * 입력한 비밀번호와 재입력한 비밀번호가 일치하는지 확인하는 메소드입니다.
+	 * @param pw
+	 * @param pwCheck
+	 * @return 비밀번호 일치 여부
+	 */
+	private static boolean isSamePw(String pw, String pwCheck) {
+		if (pw.equals(pwCheck)) {
+			return true;
+		}
+		return false;
+	}
+
+	/**
+	 * 입력한 정보와 일치하는 회원 정보가 있는지 확인하는 메소드입니다.
+	 * 
+	 * @param id
+	 * @param name
+	 * @param tel
+	 * @param birth
+	 * @param uMap
+	 * @return 회원정보 존재 유무
+	 */
+	private static boolean isValidUserData(String id, String name, String tel, String birth,
+			HashMap<String, User> uMap) {
+		// 해당 아이디가 존재하는가
+		if (uMap.containsKey(id)) { // 아이디가 존재하는 경우 - 입력한 정보가 일치하는가?
+			User userObj = uMap.get(id);
+
+			if (userObj.getName().equals(name) && userObj.getTel().equals(tel) && userObj.getBirth().equals(birth)) {
+				return true;
+			}
+		}
+
+		return false;
 	}
 
 }
