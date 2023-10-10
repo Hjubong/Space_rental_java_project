@@ -30,10 +30,40 @@ public class LoginService {
 		return n;
 	}
 
+//	/**
+//	 * 로그인 메소드입니다.
+//	 */
+//	public static void login() {
+//		LoginView.loginTitle();
+//
+//		System.out.print("아이디: ");
+//		String id = scan.nextLine();
+//
+//		System.out.print("비밀번호: ");
+//		String pw = scan.nextLine();
+//
+//		System.out.println();
+//		LoginView.line();
+//
+//		if (isValidIdPw(id, pw)) {
+//			// 유효한 로그인인 경우
+//			System.out.println("로그인이 완료되었습니다.");
+//			System.out.println("환영합니다!");
+//
+//			// 로그인 성공했으니 해당 페이지로 이동
+//		} else {
+//			// 유효하지 않은 로그인인 경우
+//			System.out.println("유효하지 않은 아이디 혹은 비밀번호입니다.");
+//			System.out.println("다시 시도해주세요.");
+//
+//			// 재입력 받거나 이전 화면으로 돌아간다.
+//		}
+//	}
+
 	/**
 	 * 로그인 메소드입니다.
 	 */
-	public static void login() {
+	public static boolean login() {
 		LoginView.loginTitle();
 
 		System.out.print("아이디: ");
@@ -42,21 +72,15 @@ public class LoginService {
 		System.out.print("비밀번호: ");
 		String pw = scan.nextLine();
 
-		System.out.println();
 		LoginView.line();
+		System.out.println();
 
 		if (isValidIdPw(id, pw)) {
 			// 유효한 로그인인 경우
-			System.out.println("로그인이 완료되었습니다.");
-			System.out.println("환영합니다!");
-
-			// 로그인 성공했으니 해당 페이지로 이동
+			return true;
 		} else {
 			// 유효하지 않은 로그인인 경우
-			System.out.println("유효하지 않은 아이디 혹은 비밀번호입니다.");
-			System.out.println("다시 시도해주세요.");
-
-			// 재입력 받거나 이전 화면으로 돌아간다.
+			return false;
 		}
 	}
 
@@ -129,10 +153,16 @@ public class LoginService {
 			System.out.println("입니다.");
 			System.out.println();
 			System.out.println("이전 화면으로 돌아갑니다.");
+			System.out.println("엔터키를 입력하세요.");
+			scan.nextLine();
 		} else {
 			// 일치하는 데이터가 없을 경우
 			System.out.println("일치하는 정보가 없습니다.");
-			// 이전 화면으로 돌아가거나 다시 입력받는다.
+
+			// 이전 화면으로 돌아가거나 (다시 입력받는다.)
+			System.out.println("이전 화면으로 돌아갑니다.");
+			System.out.println("엔터키를 입력하세요.");
+			scan.nextLine();
 		}
 
 	}
@@ -213,48 +243,59 @@ public class LoginService {
 
 		// 각 정보가 일치하는지 확인하기
 		if (isValidUserData(id, name, tel, birth, uMap)) {
-			// 변경할 비밀번호 입력받기
-			System.out.println("변경할 비밀번호를 입력해주세요.");
-			System.out.print("비밀번호: ");
-			String pw = scan.nextLine();
-			
-			// 비밀번호 유효성 검사 필요
+			while (true) {
+				// 변경할 비밀번호 입력받기
+				System.out.println("변경할 비밀번호를 입력해주세요.");
+				System.out.print("비밀번호: ");
+				String pw = scan.nextLine();
 
-			System.out.print("비밀번호 확인: ");
-			String pwCheck = scan.nextLine();
+				// 비밀번호 유효성 검사 필요
 
-			System.out.println();
-			LoginView.line();
-			
-			// 새로운 비밀번호 확인작업
-			if (isSamePw(pw, pwCheck)) {
-				
-				// 맵에 새로운 비밀번호로 변경하여 저장하기
-				User u = uMap.get(id);
-				u.setPassword(pw);
-				uMap.replace(pw, u);
-				
-				// 데이터 파일에 변경된 내용 저장하기
-				UserData.save();
-				
+				System.out.print("비밀번호 확인: ");
+				String pwCheck = scan.nextLine();
+
+				LoginView.line();
 				System.out.println();
-				System.out.println("비밀번호가 변경되었습니다.");
 
-				// 이전 화면으로 돌아가기
-				System.out.println("이전 화면으로 돌아갑니다.");
-				System.out.println();
-			} else {
-				System.out.println("비밀번호가 일치하지 않습니다.");
-				System.out.println("다시 입력해주세요.");
+				// 새로운 비밀번호 확인작업
+				if (isSamePw(pw, pwCheck)) {
+
+					// 맵에 새로운 비밀번호로 변경하여 저장하기
+					User u = uMap.get(id);
+					u.setPassword(pw);
+					uMap.replace(pw, u);
+
+					// 데이터 파일에 변경된 내용 저장하기
+					UserData.save();
+
+					System.out.println("비밀번호가 변경되었습니다.");
+					System.out.println();
+
+					// 이전 화면으로 돌아가기
+					System.out.println("이전 화면으로 돌아갑니다.");
+					System.out.println("엔터키를 입력해주세요.");
+					scan.nextLine();
+					return;
+				} else {
+					System.out.println("비밀번호가 일치하지 않습니다.");
+					System.out.println("다시 입력해주세요.");
+					System.out.println();
+					LoginView.line();
+				}
 			}
 		} else {
 			System.out.println("입력하신 정보와 일치하는 회원정보가 없습니다.");
-			// 다시 입력하거나 이전 화면으로 돌아가기
+
+			// (다시 입력하거나) 이전 화면으로 돌아가기
+			System.out.println("이전 화면으로 돌아갑니다.");
+			System.out.println("엔터키를 입력해주세요.");
+			scan.nextLine();
 		}
 	}
 
 	/**
 	 * 입력한 비밀번호와 재입력한 비밀번호가 일치하는지 확인하는 메소드입니다.
+	 * 
 	 * @param pw
 	 * @param pwCheck
 	 * @return 비밀번호 일치 여부
