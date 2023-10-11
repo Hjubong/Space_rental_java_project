@@ -30,36 +30,6 @@ public class LoginService {
 		return n;
 	}
 
-//	/**
-//	 * 로그인 메소드입니다.
-//	 */
-//	public static void login() {
-//		LoginView.loginTitle();
-//
-//		System.out.print("아이디: ");
-//		String id = scan.nextLine();
-//
-//		System.out.print("비밀번호: ");
-//		String pw = scan.nextLine();
-//
-//		System.out.println();
-//		LoginView.line();
-//
-//		if (isValidIdPw(id, pw)) {
-//			// 유효한 로그인인 경우
-//			System.out.println("로그인이 완료되었습니다.");
-//			System.out.println("환영합니다!");
-//
-//			// 로그인 성공했으니 해당 페이지로 이동
-//		} else {
-//			// 유효하지 않은 로그인인 경우
-//			System.out.println("유효하지 않은 아이디 혹은 비밀번호입니다.");
-//			System.out.println("다시 시도해주세요.");
-//
-//			// 재입력 받거나 이전 화면으로 돌아간다.
-//		}
-//	}
-
 	/**
 	 * 로그인 메소드입니다.
 	 */
@@ -102,22 +72,17 @@ public class LoginService {
 		if (uMap.containsKey(id)) { // 1.1. 존재하는 경우
 			// 비밀번호가 일치하는지 검사
 
-//			System.out.println("아이디 존재함.");
-
 			User tempUser = uMap.get(id); // 해당 아이디를 가진 회원 객체
 
 			if (pw.equals(tempUser.getPassword())) { // 1.1.1. 일치하는 경우
-				// 로그인 성공
 				return true;
 			} else { // 1.1.2. 일치하지 않는 경우
-//				System.out.println("비밀번호 틀림");
 				return false;
 			}
 
 		} else { // 1.2. 존재하지 않는 경우
 			// 유효하지 않다고 출력
 			// 다시 입력받음 또는 뒤로가기
-//			System.out.println("아이디 없음.");
 			return false;
 		}
 
@@ -217,6 +182,11 @@ public class LoginService {
 	 * 비밀번호를 재설정하는 메소드입니다.
 	 */
 	public static void resetPw() {
+//		boolean outer = true;
+//		boolean inner = true;
+
+		String pw = null;
+
 		LoginView.resetPwLabel();
 
 		// 회원 정보 입력받기 - 아이디, 이름, 전화번호, 생년월일
@@ -244,12 +214,27 @@ public class LoginService {
 		// 각 정보가 일치하는지 확인하기
 		if (isValidUserData(id, name, tel, birth, uMap)) {
 			while (true) {
+//				inner = true;
+
 				// 변경할 비밀번호 입력받기
 				System.out.println("변경할 비밀번호를 입력해주세요.");
-				System.out.print("비밀번호: ");
-				String pw = scan.nextLine();
 
-				// 비밀번호 유효성 검사 필요
+				while (true) {
+					System.out.print("비밀번호: ");
+					pw = scan.nextLine();
+					System.out.println();
+					
+					// 비밀번호 유효성 검사 필요
+
+					if (isValidNewPw(pw)) {
+						// 적합한 비밀번호인 경우
+
+//						inner = false;
+						break;
+					} else {
+						System.out.println("유효하지 않은 비밀번호입니다. 다시 입력해주세요.");
+					}
+				}
 
 				System.out.print("비밀번호 확인: ");
 				String pwCheck = scan.nextLine();
@@ -291,6 +276,14 @@ public class LoginService {
 			System.out.println("엔터키를 입력해주세요.");
 			scan.nextLine();
 		}
+	}
+
+	private static boolean isValidNewPw(String pw) {
+		// 비밀번호 유효성 검사(8-16자, 영어 대/소문자, 숫자, 특수문자(!@#$%^&*) 가능) -> 주원오빠랑 다시 맞추기
+		if (pw.matches("^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*])[A-Za-z0-9!@#$%^&*]{8,16}$")) {
+			return true;
+		}
+		return false;
 	}
 
 	/**

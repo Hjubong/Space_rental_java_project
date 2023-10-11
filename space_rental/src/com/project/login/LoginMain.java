@@ -51,7 +51,6 @@ public class LoginMain {
 					innerFlag = false;
 					outerFlag = false;
 				} else if (n.equals("1")) { // 로그인
-//					LoginService.login();
 
 					if (LoginService.login()) {
 						// 로그인 성공 시 메인 화면으로 넘어가기
