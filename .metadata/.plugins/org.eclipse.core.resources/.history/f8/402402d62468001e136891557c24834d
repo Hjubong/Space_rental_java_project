@@ -1,0 +1,29 @@
+package juwon.admin;
+
+import java.util.HashMap;
+
+import com.project.user.User;
+import com.project.user.UserData;
+
+public class AdminUser {
+	
+	public static void main(String[] args) {
+		// 먼저 사용자 데이터를 로드합니다.
+        UserData.load();
+        
+        // 메모리에 저장된 사용자 데이터 가져오기
+        HashMap<String, User> userMap = UserData.getUserMap();
+        
+        // 사용자 데이터 출력
+        for (User user : userMap.values()) {
+            System.out.println("User ID: " + user.getId());
+            System.out.println("Name: " + user.getName());
+            System.out.println("Phone: " + user.getTel());
+            System.out.println("Birth: " + user.getBirth());
+            System.out.println("Status: " + user.getStatus());
+            System.out.println("Level: " + user.getLevel());
+            System.out.println("----------------------------");
+        }
+        
+	}
+}

@@ -17,7 +17,7 @@ public class AdminStudioMain {
 		
 		while (loop) {	
 			
-		AdminStudioManageView.manageView();			// 관리자 스튜디오관리 부분 뷰
+		AdminStudioManageView.studioManageView();			// 관리자 스튜디오관리 부분 뷰
 			
 		int input = scan.nextInt();					// 값을 받아서
 		
