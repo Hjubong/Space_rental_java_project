@@ -1,0 +1,5 @@
+package juwon.admin;
+
+public class AdminUser {
+
+}
