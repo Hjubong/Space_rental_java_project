@@ -12,7 +12,7 @@ public class User {
 	private String password; // 비밀번호
 	private String tel; // 전화번호
 	private String birth; // 생년월일
-	private String status; // 탈퇴 여부: y, n
+	private String status; // 탈퇴 여부: Y, N
 	private int level; // 0 - 관리자, 1 - 회원
 
 	public User(String id, String name, String password, String tel, String birth, String status, int level) {

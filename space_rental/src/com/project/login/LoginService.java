@@ -48,14 +48,14 @@ public class LoginService {
 
 		if (isValidIdPw(id, pw)) {
 			// 유효한 로그인인 경우
-			
+
 			// 로그인 한 유저 아이디를 저장
 			Auth.authId = id;
-			
+
 			return true;
 		} else {
 			// 유효하지 않은 로그인인 경우
-			
+
 			return false;
 		}
 	}
@@ -73,13 +73,16 @@ public class LoginService {
 		HashMap<String, User> uMap = UserData.getUserMap();
 
 		// 1. 아이디가 존재하는지 검색
-		// 아이디가 여러개일 수는 없다.
 
 		if (uMap.containsKey(id)) { // 1.1. 존재하는 경우
-			// 비밀번호가 일치하는지 검사
-
 			User tempUser = uMap.get(id); // 해당 아이디를 가진 회원 객체
 
+			// 탈퇴한 회원인지 검사
+			if (hasWithdrewUser(tempUser)) { // 탈퇴한 경우
+				return false;
+			}
+
+			// 비밀번호가 일치하는지 검사
 			if (pw.equals(tempUser.getPassword())) { // 1.1.1. 일치하는 경우
 				return true;
 			} else { // 1.1.2. 일치하지 않는 경우
@@ -91,6 +94,20 @@ public class LoginService {
 			// 다시 입력받음 또는 뒤로가기
 			return false;
 		}
+	}
+
+	/**
+	 * 회원이 탈퇴했는지 확인하는 메소드입니다.
+	 * 
+	 * @param tempUser
+	 * @return 탈퇴한 경우 true, 탈퇴하지 않은 경우 false
+	 */
+	private static boolean hasWithdrewUser(User user) {
+		if (user.getStatus().equals("Y")) { // 탈퇴한 경우
+			// 탈퇴했다면 존재하지 않는다고 본다.
+			return true;
+		}
+		return false;
 	}
 
 	/**
@@ -153,9 +170,10 @@ public class LoginService {
 		String id = null;
 
 		for (HashMap.Entry<String, User> entry : uMap.entrySet()) {
-			User u = entry.getValue();
+			User user = entry.getValue();
 
-			if (u.getName().equals(name) && u.getTel().equals(tel) && u.getBirth().equals(birth)) {
+			// 탈퇴하지 않았고, 이름, 전화번호, 생년월일이 같은 경우
+			if (!hasWithdrewUser(user) && user.getName().equals(name) && user.getTel().equals(tel) && user.getBirth().equals(birth)) {
 				id = entry.getKey();
 				break;
 			}
@@ -315,9 +333,9 @@ public class LoginService {
 			HashMap<String, User> uMap) {
 		// 해당 아이디가 존재하는가
 		if (uMap.containsKey(id)) { // 아이디가 존재하는 경우 - 입력한 정보가 일치하는가?
-			User userObj = uMap.get(id);
+			User user = uMap.get(id);
 
-			if (userObj.getName().equals(name) && userObj.getTel().equals(tel) && userObj.getBirth().equals(birth)) {
+			if (!hasWithdrewUser(user) && user.getName().equals(name) && user.getTel().equals(tel) && user.getBirth().equals(birth)) {
 				return true;
 			}
 		}

@@ -1,9 +1,12 @@
 package com.project.login;
 
+import java.util.HashMap;
 import java.util.Scanner;
 
 import com.project.auth.Auth;
 import com.project.main.MainService;
+import com.project.user.User;
+import com.project.user.UserData;
 
 public class LoginMain {
 	public static void main(String[] args) {
@@ -59,7 +62,25 @@ public class LoginMain {
 						System.out.println("환영합니다. " + Auth.authId + " 님!");
 
 						// 로그인 성공했으니 해당 페이지로 이동
-
+						// 관리자페이지와 일반회원 페이지가 다르다.
+						
+						// 전체 회원 목록 불러오기
+						HashMap<String, User> uMap = UserData.getUserMap();
+						
+						// 현재 회원의 객체 가져오기
+						User user = uMap.get(Auth.authId);
+						
+						// 현재 회원의 등급 가져오기
+						int level = user.getLevel();
+						
+						if (level == 0) { // 관리자
+							System.out.println("관리자 로그인 후 화면입니다.");
+							
+						} else { // 일반 회원
+							System.out.println("일반 회원 로그인 후 화면입니다.");
+							
+						}
+						
 						innerFlag = false;
 						outerFlag = false;
 					} else {
