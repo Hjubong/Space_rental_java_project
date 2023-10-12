@@ -1,0 +1,12 @@
+package com.project.admin;
+
+public class AdminUserMain {
+	
+	public static void main(String[] args) {
+		AdminUser();
+	}
+	
+	public static void AdminUser() {
+		
+	}
+}
