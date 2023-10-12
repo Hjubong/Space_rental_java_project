@@ -3,6 +3,7 @@ package com.project.login;
 import java.util.HashMap;
 import java.util.Scanner;
 
+import com.project.auth.Auth;
 import com.project.user.User;
 import com.project.user.UserData;
 
@@ -47,9 +48,14 @@ public class LoginService {
 
 		if (isValidIdPw(id, pw)) {
 			// 유효한 로그인인 경우
+			
+			// 로그인 한 유저 아이디를 저장
+			Auth.authId = id;
+			
 			return true;
 		} else {
 			// 유효하지 않은 로그인인 경우
+			
 			return false;
 		}
 	}
@@ -85,9 +91,11 @@ public class LoginService {
 			// 다시 입력받음 또는 뒤로가기
 			return false;
 		}
-
 	}
 
+	/**
+	 * 아이디 찾기 기능을 하는 메소드입니다.
+	 */
 	public static void findId() {
 		LoginView.findIdLabel();
 
@@ -182,9 +190,6 @@ public class LoginService {
 	 * 비밀번호를 재설정하는 메소드입니다.
 	 */
 	public static void resetPw() {
-//		boolean outer = true;
-//		boolean inner = true;
-
 		String pw = null;
 
 		LoginView.resetPwLabel();
@@ -214,7 +219,6 @@ public class LoginService {
 		// 각 정보가 일치하는지 확인하기
 		if (isValidUserData(id, name, tel, birth, uMap)) {
 			while (true) {
-//				inner = true;
 
 				// 변경할 비밀번호 입력받기
 				System.out.println("변경할 비밀번호를 입력해주세요.");
@@ -223,13 +227,10 @@ public class LoginService {
 					System.out.print("비밀번호: ");
 					pw = scan.nextLine();
 					System.out.println();
-					
-					// 비밀번호 유효성 검사 필요
 
+					// 비밀번호 유효성 검사
 					if (isValidNewPw(pw)) {
 						// 적합한 비밀번호인 경우
-
-//						inner = false;
 						break;
 					} else {
 						System.out.println("유효하지 않은 비밀번호입니다. 다시 입력해주세요.");
@@ -279,8 +280,8 @@ public class LoginService {
 	}
 
 	private static boolean isValidNewPw(String pw) {
-		// 비밀번호 유효성 검사(8-16자, 영어 대/소문자, 숫자, 특수문자(!@#$%^&*) 가능) -> 주원오빠랑 다시 맞추기
-		if (pw.matches("^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*])[A-Za-z0-9!@#$%^&*]{8,16}$")) {
+		// 비밀번호 유효성 검사(8-16자, 영어 대/소문자, 숫자, 특수문자(@$%^&+=!) 가능)
+		if (pw.matches("^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[@$%^&+=!])[A-Za-z0-9@$%^&+=!]{8,16}$")) {
 			return true;
 		}
 		return false;

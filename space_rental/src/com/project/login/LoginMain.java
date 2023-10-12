@@ -2,6 +2,7 @@ package com.project.login;
 
 import java.util.Scanner;
 
+import com.project.auth.Auth;
 import com.project.main.MainService;
 
 public class LoginMain {
@@ -55,10 +56,10 @@ public class LoginMain {
 					if (LoginService.login()) {
 						// 로그인 성공 시 메인 화면으로 넘어가기
 						System.out.println("로그인이 완료되었습니다.");
-						System.out.println("환영합니다!");
+						System.out.println("환영합니다. " + Auth.authId + " 님!");
 
 						// 로그인 성공했으니 해당 페이지로 이동
-						
+
 						innerFlag = false;
 						outerFlag = false;
 					} else {
@@ -66,19 +67,19 @@ public class LoginMain {
 						System.out.println("유효하지 않은 아이디 혹은 비밀번호입니다.");
 						System.out.println("다시 시도해주세요.");
 						System.out.println();
-						
+
 						// (재입력 받거나) 이전 화면으로 돌아간다.
 						innerFlag = false;
 					}
 
 				} else if (n.equals("2")) { // 아이디 찾기
 					LoginService.findId();
-					
+
 					innerFlag = false;
-					
+
 				} else if (n.equals("3")) { // 비밀번호 재설정
 					LoginService.resetPw();
-					
+
 					innerFlag = false;
 				}
 			}
