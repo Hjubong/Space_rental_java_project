@@ -12,7 +12,40 @@ public class LoginMain {
 	public static void main(String[] args) {
 		MainService.dataLoad();
 
-		loginMain();
+		mainPage();
+		
+//		loginMain();
+	}
+	
+	public static void mainPage() {
+		Scanner scan = new Scanner(System.in);
+		
+		System.out.println(" _  _____  _   _  ____  ____    _    _   _ \r\n"
+				+ "| |/ / _ \\| \\ | |/ ___|/ ___|  / \\  | \\ | |\r\n"
+				+ "| ' / | | |  \\| | |  _| |  _  / _ \\ |  \\| |\r\n"
+				+ "| . \\ |_| | |\\  | |_| | |_| |/ ___ \\| |\\  |\r\n"
+				+ "|_|\\_\\___/|_| \\_|\\____|\\____/_/   \\_\\_| \\_|");
+		System.out.println(" _  __                                   \r\n"
+				+ "| |/ /___  _ __   __ _  __ _  __ _ _ __  \r\n"
+				+ "| ' // _ \\| '_ \\ / _` |/ _` |/ _` | '_ \\ \r\n"
+				+ "| . \\ (_) | | | | (_| | (_| | (_| | | | |\r\n"
+				+ "|_|\\_\\___/|_| |_|\\__, |\\__, |\\__,_|_| |_|\r\n"
+				+ "                 |___/ |___/             ");
+		System.out.println(" _  _____  _   _  ____  ____    _    _   _ \r\n"
+				+ "| |/ / _ \\| \\ | |/ ___|/ ___|  / \\  | \\ | |\r\n"
+				+ "| ' / | | |  \\| | |  _| |  _  / _ \\ |  \\| |\r\n"
+				+ "| . \\ |_| | |\\  | |_| | |_| |/ ___ \\| |\\  |\r\n"
+				+ "|_|\\_\\___/|_| \\_|\\____|\\____/_/   \\_\\_| \\_|\r\n"
+				+ "                                           ");
+		
+		
+		System.out.println();
+		System.out.println("1. 로그인");
+		System.out.println("2. 회원가입");
+		System.out.println("0. 뒤로가기");
+		System.out.println();
+		System.out.print("번호를 입력하세요: ");
+		String s = scan.nextLine();
 	}
 
 	public static void loginMain() {
