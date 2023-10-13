@@ -42,7 +42,7 @@ public class MyPageMain {
                 mypage.userUnregister(); //회원 탈퇴 화면으로 이동
 
                 if (mypage.unregister.equals("y")) {
-                    // 회원탈퇴 메소드
+                    // 회원 탈퇴 메소드
                     myPageService.deleteUser("25bjvtn30vu2");
 
                     // TODO: 로그인 페이지로 이동하는 메소드로 변경하기
