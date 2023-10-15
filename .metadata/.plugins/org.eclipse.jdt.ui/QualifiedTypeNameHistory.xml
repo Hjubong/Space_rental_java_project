@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
     <fullyQualifiedTypeName name="com.project.user.UserData"/>
+    <fullyQualifiedTypeName name="com.project.login.LoginMain"/>
+    <fullyQualifiedTypeName name="com.project.admin.MyPageMain"/>
+    <fullyQualifiedTypeName name="com.project.auth.Auth"/>
+    <fullyQualifiedTypeName name="com.project.user.UserMain"/>
+    <fullyQualifiedTypeName name="com.project.admin.AdminMain"/>
+    <fullyQualifiedTypeName name="com.project.admin.AdminView"/>
 </qualifiedTypeNameHistroy>
