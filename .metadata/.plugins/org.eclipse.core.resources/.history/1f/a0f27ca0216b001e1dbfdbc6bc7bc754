@@ -1,0 +1,12 @@
+package com.project.user;
+
+public class UserMain {
+	
+	public static void main(String[] args) {
+		
+	}
+	
+	public static void userMain() {
+		
+	}
+}

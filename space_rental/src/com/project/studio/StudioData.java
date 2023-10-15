@@ -45,7 +45,7 @@ public class StudioData {
 
 			reader.close();
 			
-			System.out.println("스튜디오 데이터 로딩 완료");
+//			System.out.println("스튜디오 데이터 로딩 완료");
 
 		} catch (Exception e) {
 			// TODO: handle exception

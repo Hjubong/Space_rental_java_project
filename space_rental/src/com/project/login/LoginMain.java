@@ -3,10 +3,12 @@ package com.project.login;
 import java.util.HashMap;
 import java.util.Scanner;
 
+import com.project.admin.AdminMain;
 import com.project.auth.Auth;
 import com.project.main.MainService;
 import com.project.user.User;
 import com.project.user.UserData;
+import com.project.user.UserMain;
 
 public class LoginMain {
 	public static void main(String[] args) {
@@ -109,9 +111,12 @@ public class LoginMain {
 						if (level == 0) { // 관리자
 							System.out.println("관리자 로그인 후 화면입니다.");
 							
+							AdminMain.main(null);
+							
 						} else { // 일반 회원
 							System.out.println("일반 회원 로그인 후 화면입니다.");
 							
+							UserMain.main(null);
 						}
 						
 						innerFlag = false;
