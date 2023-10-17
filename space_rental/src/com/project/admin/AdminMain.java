@@ -34,6 +34,8 @@ public class AdminMain {
 			} else if (input.equals("3")) {
 					AdminRentMain.main(null);	// 3번일 경우 대여관리
 			} else if (input.equals("4")) {
+					AdminStudioMain.main(null);	// 4번일 경우 스튜디오 관리
+			} else if (input.equals("5")) {
 				System.out.println("로그아웃이 완료되었습니다. 로그인화면으로 이동합니다."); // 4번일 경우 로그아웃
 				Auth.authId = null;			
 				LoginMain.loginMain();

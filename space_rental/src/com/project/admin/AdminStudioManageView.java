@@ -15,6 +15,7 @@ public class AdminStudioManageView {
 		System.out.println("3. 스튜디오 수정");
 		System.out.println("4. 스튜디오 삭제");
 		System.out.println("--------------------------------");
+		System.out.print("번호 입력: ");
 		
 	}
 	
@@ -28,6 +29,7 @@ public class AdminStudioManageView {
 		System.out.println("2. 대여 중인 스튜디오 정보 조회");
 		System.out.println("3. 분류별 조회");
 		System.out.println("--------------------------------");
+		System.out.print("번호 입력: ");
 		
 	}
 
@@ -48,6 +50,7 @@ public class AdminStudioManageView {
 		System.out.println("7. 음악실");
 		System.out.println("8. 체육관");
 		System.out.println("---------------------------------");
+		System.out.print("번호 입력: ");
 	}
 	
 	public static void inputEnterView() {
