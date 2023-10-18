@@ -151,6 +151,7 @@ public class UserRentService {
 					}
 				}
 				
+				AdminStudioManageView.inputEnterView();
 				
 			} else if (input.equals("4")) {
 				
@@ -180,6 +181,8 @@ public class UserRentService {
 					}
 				}
 				
+				AdminStudioManageView.inputEnterView();
+				
 			} else if (input.equals("5")) {
 				
 				System.out.print("최소 크기(평): ");
@@ -208,6 +211,8 @@ public class UserRentService {
 					}
 				}
 				
+				AdminStudioManageView.inputEnterView();
+				
 			} else if (input.equals("6")) {
 				
 				System.out.println("지역을 입력하세요. ex)구로, 강남");
@@ -228,6 +233,8 @@ public class UserRentService {
 						System.out.println("주소: " + s.getAddress());
 					}
 				}
+				
+				AdminStudioManageView.inputEnterView();
 				
 			} else if (input.equals("0")) {
 				
@@ -424,6 +431,8 @@ public class UserRentService {
 				System.out.printf("대여 종료 날짜: %tF %tR\r\n", r.getEndDate(), r.getEndDate());
 			}
 		}
+		
+		AdminStudioManageView.inputEnterView();
 		
 	}
 	

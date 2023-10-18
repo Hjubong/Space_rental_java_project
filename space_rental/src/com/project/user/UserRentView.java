@@ -13,6 +13,7 @@ public class UserRentView {
 		System.out.println("3. 대여 내역 조회");
 		System.out.println("4. 대여 취소");
 		System.out.println("--------------------------------");
+		System.out.print("번호 입력: ");
 		
 	}
 
@@ -29,6 +30,7 @@ public class UserRentView {
 		System.out.println("5. 크기별 조회");
 		System.out.println("6. 지역별 조회");
 		System.out.println("--------------------------------");
+		System.out.print("번호 입력: ");
 		
 	}
 	
