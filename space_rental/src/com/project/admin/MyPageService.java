@@ -3,10 +3,12 @@ package com.project.admin;
 import java.util.HashMap;
 import java.util.Scanner;
 
+import com.project.auth.Auth;
 import com.project.user.User;
 import com.project.user.UserData;
 
 public class MyPageService {
+    Auth auth = new Auth();
     MyPageView mypage = new MyPageView();
     Scanner scan = new Scanner(System.in);
     String path = "/Users/suding/IdeaProjects/space-rental/src/main/resources/file/user.csv";
@@ -33,7 +35,7 @@ public class MyPageService {
 
         userMap = UserData.getUserMap();
 
-        User u = userMap.get("25bjvtn30vu2");
+        User u = userMap.get(auth.authId);
 
         return u;
     }
@@ -54,7 +56,7 @@ public class MyPageService {
 
             userMap = UserData.getUserMap();
 
-            User u = userMap.get("25bjvtn30vu2");
+            User u = userMap.get(auth.authId);
 
             Scanner scanner = new Scanner(System.in);
 
@@ -81,7 +83,7 @@ public class MyPageService {
 
         userMap = UserData.getUserMap();
 
-        User u = userMap.get("25bjvtn30vu2");
+        User u = userMap.get(auth.authId);
 
         Scanner scanner = new Scanner(System.in);
 
@@ -109,7 +111,7 @@ public class MyPageService {
 
         userMap = UserData.getUserMap();
 
-        User u = userMap.get("25bjvtn30vu2");
+        User u = userMap.get(auth.authId);
 
         Scanner scanner = new Scanner(System.in);
 
@@ -142,7 +144,7 @@ public class MyPageService {
 
         userMap = UserData.getUserMap();
 
-        User u = userMap.get("25bjvtn30vu2");
+        User u = userMap.get(auth.authId);
 
         Scanner scanner = new Scanner(System.in);
 
@@ -170,14 +172,13 @@ public class MyPageService {
 
         userMap = UserData.getUserMap();
 
-        User u = userMap.get("25bjvtn30vu2");
+        User u = userMap.get(auth.authId);
 
             u.setStatus("Y");
             UserData.save();
 
             System.out.println("회원이 탈퇴 되었습니다.");
 
-            mypage.myPageMenu();
 
 
     }
