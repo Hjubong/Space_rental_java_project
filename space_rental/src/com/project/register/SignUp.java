@@ -1,4 +1,4 @@
-package main;
+package com.project.register;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
@@ -6,7 +6,7 @@ import com.project.user.UserData;
 
 public class SignUp {
 	
-	    public static void main(String[] args) {
+	    public static void signUp() {
 	        Scanner scanner = new Scanner(System.in);
 	        
 	        String username;

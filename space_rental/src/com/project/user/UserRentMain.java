@@ -4,10 +4,6 @@ import java.util.Scanner;
 
 public class UserRentMain {
 
-	public static void main(String[] args) {
-		rentMain();
-	}
-	
 	public static void rentMain() {
 		
 		

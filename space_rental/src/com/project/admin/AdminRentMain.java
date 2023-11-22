@@ -3,10 +3,6 @@ package com.project.admin;
 import java.util.Scanner;
 
 public class AdminRentMain {
-
-	public static void main(String[] args) {
-		adminRentManage();
-	}
 	
 	public static void adminRentManage() {
 		

@@ -1,8 +1,9 @@
-package com.project.view;
+package com.project.main;
 
 import java.util.Scanner;
 
 import com.project.login.LoginMain;
+import com.project.register.SignUp;
 
 public class MainTestService {
 	public static void mainStart() {
@@ -27,7 +28,7 @@ public class MainTestService {
 				MainTestView.mainPage();
 			} else if (s.equals("2")) { //회원가입
 				//회원가입 페이지로 이동
-				MainTestView.mainPage();
+				SignUp.signUp();
 			} else {
 				MainTestView.mainWrongInput();
 			}

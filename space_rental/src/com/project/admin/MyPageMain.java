@@ -7,7 +7,7 @@ import com.project.user.User;
 import java.util.Scanner;
 
 public class MyPageMain {
-    public static void main(String[] args) {
+    public static void myPageMain() {
         MyPageService myPageService = new MyPageService();
         LoginMain l= new LoginMain();
 

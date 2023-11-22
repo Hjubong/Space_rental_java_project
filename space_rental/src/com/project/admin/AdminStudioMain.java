@@ -4,10 +4,6 @@ import java.util.Scanner;
 
 public class AdminStudioMain {
 
-	public static void main(String[] args) {
-		adminStudioManage();
-	}
-	
 	public static void adminStudioManage() {
 		
 		

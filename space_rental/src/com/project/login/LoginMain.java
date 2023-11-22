@@ -11,11 +11,6 @@ import com.project.user.UserData;
 import com.project.user.UserMain;
 
 public class LoginMain {
-	public static void main(String[] args) {
-		MainService.dataLoad();
-
-		loginMain();
-	}
 
 	public static void loginMain() {
 		Scanner scan = new Scanner(System.in);
@@ -78,12 +73,12 @@ public class LoginMain {
 						if (level == 0) { // 관리자
 							System.out.println("관리자 로그인 후 화면입니다.");
 							
-							AdminMain.main(null);
+							AdminMain.adminMain();;
 							
 						} else { // 일반 회원
 							System.out.println("일반 회원 로그인 후 화면입니다.");
 							
-							UserMain.main(null);
+							UserMain.userMain();
 						}
 						
 						innerFlag = false;

@@ -9,12 +9,6 @@ import com.project.user.UserView;
 
 public class AdminMain {
 	
-	public static void main(String[] args) {
-	
-		adminMain();
-		
-	}
-	
 	public static void adminMain() {
 		
 		boolean loop = true;					// 무한루프를 위한 loop
@@ -28,17 +22,17 @@ public class AdminMain {
 		String input = scan.nextLine();			// 값을 받아서
 		
 			if (input.equals("1")) {
-					MyPageMain.main(null);		// 1번일 경우 관리자 마이 페이지
+					MyPageMain.myPageMain();		// 1번일 경우 관리자 마이 페이지
 			} else if (input.equals("2")) {
-					AdminUserMain.main(null);	// 2번일 경우 회원관리
+					AdminUserMain.AdminUser();	// 2번일 경우 회원관리
 			} else if (input.equals("3")) {
-					AdminRentMain.main(null);	// 3번일 경우 대여관리
+					AdminRentMain.adminRentManage();	// 3번일 경우 대여관리
 			} else if (input.equals("4")) {
-					AdminStudioMain.main(null);	// 4번일 경우 스튜디오 관리
+					AdminStudioMain.adminStudioManage();	// 4번일 경우 스튜디오 관리
 			} else if (input.equals("5")) {
 				System.out.println("로그아웃이 완료되었습니다. 로그인화면으로 이동합니다."); // 4번일 경우 로그아웃
 				Auth.authId = null;			
-				LoginMain.loginMain();
+				loop = false;
 			}else {								
 				System.out.println("올바른 서비스의 숫자를 입력해주세요.");	// 유효성 검사
 			}

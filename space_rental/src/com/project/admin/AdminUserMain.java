@@ -4,10 +4,6 @@ import java.util.Scanner;
 
 public class AdminUserMain {
 	
-	public static void main(String[] args) {
-		AdminUser();
-	}
-	
 	public static void AdminUser() {
 		
 		boolean loop = true;
